@@ -14,6 +14,10 @@ app.get('/sobre',function(req,res){
 })
 
 
+app.get('/layout',function(req,res){
+    res.send("esse é o nove layout")
+})
+
 app.listen(3000,function(){
     console.log("conexão inicialiada")
 })
