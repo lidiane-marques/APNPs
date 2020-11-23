@@ -57,6 +57,30 @@ app.get('/del/:id', function(req,res){
     console.log(req.params.id)
 })
 
+app.get('/edit/:id',function(req,res){
+    Usuario.findById(req.params.id, function(err, docs){
+        
+        if(err){
+            console.log(err)
+        }else{
+            res.render('edita.ejs',{Usuario: docs})
+        }
+       
+    })
+ 
+})
+
+app.post('/edit/:id', function(req,res){
+    Usuario.findByIdAndUpdate(req.params.id,{
+        nome: req.body.txtNome,
+        email:req.body.txtEmail,
+        senha:req.body.txtSenha,
+        foto:req.body.txtFoto
+    }, function(err, docs){
+        res.redirect('/')
+    })
+})
+
 app.listen(3000,function(){
     console.log("conexão inicializda")
 })

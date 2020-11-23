@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
     <style>
+            body {
+            position: relative;
+         width: 1024px;
+         height: 1024px;
+         background: linear-gradient(250deg, #58F73E 2.08%, #083AEE 94.78%);
+
+        
+            }
+        
         table,td,th{
-            border: 1px solid black;
+            
+            border: 1px solid white;
         }
         th{
             font-weight: bolder;
@@ -14,6 +24,7 @@
         td,th{
             padding: 5px;
         }
+       
 
     </style>
 </head>
@@ -28,6 +39,7 @@
             <th>Email</th>
             <th>Foto</th>
             <th>Deletar</th>
+            <th>Editar</th>
         </tr>
 
         <%for(usuario of Usuarios){ %>
@@ -38,6 +50,10 @@
             <td><%=usuario.foto %></td>
             <td>
                 <a href="/del/<%=usuario._id%>" >deletar</a>
+            </td>
+
+            <td>
+                <a href="/edit/<%=usuario._id%>" >editar</a>
             </td>
         </tr>
         <% } %>
